@@ -1,8 +1,9 @@
 import React from "react";
-import { Route, Link } from "react-router-dom";
+import { Route, Link, Switch } from "react-router-dom";
 
 import "./App.css";
 import Menu from "./Menu";
+import NoMatch from "./NoMatch";
 //import MenuDetail from "./MenuDetail";
 
 const HomePage = props => {
@@ -37,13 +38,18 @@ const TopicDetail = props => {
 function App() {
   return (
     <div>
-      <Route exact path="/" component={HomePage} />
-      <Route exact path="/blog/asdqw/topics" component={TopicsList} />
-      <Route path="/blog/asdqw/topics/:topicId" component={TopicDetail} />
-      <Route exact path="/blog/topics" component={TopicsList} />
-      <Route path="/blog/topics/:topicId" component={TopicDetail} />
-      <Route exact path="/menu" component={Menu} />
+      <Switch>
+        <Route exact path="/react-router-demo" component={HomePage} />
+        <Route exact path="/blog/asdqw/topics" component={TopicsList} />
+        <Route path="/blog/asdqw/topics/:topicId" component={TopicDetail} />
+        <Route exact path="/blog/topics" component={TopicsList} />
+        <Route path="/blog/topics/:topicId" component={TopicDetail} />
+        <Route exact path="/menu" component={Menu} />
+        <Route component={NoMatch} />
+      </Switch>
       {/*<Route exact path="/menu/:detailId" component={MenuDetail} />*/}
+      <Link to="/blog/asdqw/topics"> Topics </Link>
+      <Link to="/menu"> Menu </Link>
     </div>
   );
 }
