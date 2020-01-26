@@ -20,6 +20,12 @@ const TopicsList = props => {
   return (
     <div>
       <h1>TOPIC LIST PAGE</h1>
+      <h3>
+        <i>
+          This page has no nested routes. Topic Details are seperate routes and
+          as such are rendered independently.
+        </i>
+      </h3>
       <Link to={`${props.match.url}/13`}>TO TOPIC 13</Link>
       <Link to={`${props.match.url}/17`}>TO TOPIC 17</Link>
       <Link to={`${props.match.url}/21`}>TO TOPIC 21</Link>
@@ -39,12 +45,12 @@ function App() {
   return (
     <div>
       <Switch>
-        <Route exact path="/react-router-demo" component={HomePage} />
+        <Route exact path="/" component={HomePage} />
         <Route exact path="/blog/asdqw/topics" component={TopicsList} />
         <Route path="/blog/asdqw/topics/:topicId" component={TopicDetail} />
         <Route exact path="/blog/topics" component={TopicsList} />
         <Route path="/blog/topics/:topicId" component={TopicDetail} />
-        <Route exact path="/menu" component={Menu} />
+        <Route path="/menu" component={Menu} />
         <Route component={NoMatch} />
       </Switch>
       {/*<Route exact path="/menu/:detailId" component={MenuDetail} />*/}
